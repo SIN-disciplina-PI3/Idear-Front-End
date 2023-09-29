@@ -1,9 +1,13 @@
+import { NavBar } from "../components/components"
+import {
+  Box,
+} from "@chakra-ui/react";
 
 const Home = () => {
   return (
-    <>
-      <h2 style={{fontWeight: 'bold', fontSize: '3rem' }}>Hello world</h2>
-    </>
+      <Box bg="#B3C6E3" minH="100vh" display={"flex"} justifyContent={"center"}>
+        <NavBar />
+      </Box>
   );
 };
 
