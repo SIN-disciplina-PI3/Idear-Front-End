@@ -3,6 +3,7 @@ import { Box, Heading, Image, Flex, Button } from "@chakra-ui/react";
 import bg1 from "../assets/background.svg";
 import bg2 from "../assets/background1.svg";
 import foguete from "../assets/foguete.svg";
+import universo from "../assets/universo.svg";
 
 const Home = () => {
   const backgroundImage = `url(${bg1})`;
@@ -10,7 +11,6 @@ const Home = () => {
 
   return (
     <>
-
       <Flex
         bgImage={backgroundImage}
         bgSize="contain"
@@ -93,8 +93,39 @@ const Home = () => {
             </Button>
           </Flex>
 
-          <Box>
-            <Image src={foguete} minW="500px" />
+          <Box
+            w="600px"
+            h="600px"
+            position="relative"
+            overflow="hidden"
+            _hover={{
+              "& .rocket": {
+                transform: "translate(-30px, -30px)", 
+                transition: "transform 0.3s ease-in-out",
+              },
+              "& .universe": {
+                transform: "translate(0, 10px)",
+                transition: "transform 0.3s ease-in-out",
+              },
+            }}
+          >
+            <Image
+              src={foguete}
+              h="300px"
+              className="rocket"
+              position="absolute"
+              top="11%"
+              left="21%"
+              zIndex="2"
+            />
+            <Image
+              src={universo}
+              minW="500px"
+              className="universe"
+              position="relative"
+            />
+
+
           </Box>
         </Flex>
       </Flex>
