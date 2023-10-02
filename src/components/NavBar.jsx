@@ -22,19 +22,19 @@ import {
 
 const navItems = [
   {
-    label: "Home",
+    label: "Inicio",
     href: "#",
   },
   {
-    label: "Product",
+    label: "Produto",
     href: "#",
   },
   {
-    label: "Pricing",
+    label: "Planos",
     href: "#",
   },
   {
-    label: "Contact Us",
+    label: "Contato",
     href: "#",
   },
 ];
@@ -69,7 +69,7 @@ export default function NavBar() {
           <Text textAlign={useBreakpointValue({ base: "center", md: "left" })}
           fontWeight={700}
           fontSize={"2rem"}
-          color={"#16194F"}>
+          color={"#2D2D2D"}>
             Idear
           </Text>
           <Flex
@@ -95,19 +95,19 @@ export default function NavBar() {
             href={"#"}
             color={"#16194F"}
           >
-            Sign In
+            Entrar
           </Button>
           <Button
             as={"a"}
             display={{ base: "none", md: "inline-flex" }}
             fontSize={"sm"}
             fontWeight={600}
-            color={"#16194F"}
-            bg={"#FFD700"}
+            color={"#FDFFFF"}
+            bg={"#806CE5"}
             href={"#"}
             _hover={"none"}
           >
-            Sign Up
+            Cadastrar-se
           </Button>
         </Stack>
       </Flex>
@@ -129,10 +129,10 @@ const DesktopNav = () => {
             href={navItem.href ?? "#"}
             fontSize={"lg"}
             fontWeight={600}
-            color={"#FDFFFF"}
+            color={"#2D2D2D"}
             _hover={{
               textDecoration: "none",
-              color: "#16194F",
+              color: "#",
             }}
             whiteSpace={"nowrap"}
           >
