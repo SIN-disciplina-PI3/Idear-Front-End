@@ -1,4 +1,3 @@
-import { NavBar } from "../components/components";
 import { Box, Heading, Image, Flex, Button } from "@chakra-ui/react";
 import bg1 from "../assets/background.svg";
 import bg2 from "../assets/background1.svg";
@@ -48,7 +47,6 @@ const Home = () => {
           bgPosition: "bottom",
         }}
       >
-        <NavBar />
         <Flex
           align="center"
           justify="space-between"

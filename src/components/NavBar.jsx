@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import {
   Box,
   Flex,
@@ -11,31 +11,34 @@ import {
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
-  Center,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
-  ChevronRightIcon,
 } from "@chakra-ui/icons";
+import { Link } from "react-router-dom";
 
 const navItems = [
   {
     label: "Inicio",
     href: "#",
+    to: "/"
   },
   {
     label: "Produto",
     href: "#",
+    to: "/produto"
   },
   {
     label: "Planos",
     href: "#",
+    to: "/planos"
   },
   {
     label: "Contato",
     href: "#",
+    to: "/contatos"
   },
 ];
 
@@ -43,7 +46,7 @@ export default function NavBar() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box w={"100%"} maxW={"1460px"}>
+    <Box w={"100%"} maxW={"1460px"} marginInline="auto">
       <Flex
         color={useColorModeValue("gray.600", "white")}
         minH={"60px"}
@@ -95,7 +98,7 @@ export default function NavBar() {
             href={"#"}
             color={"#16194F"}
           >
-            Entrar
+            <Link to="/login">Entrar</Link>
           </Button>
           <Button
             as={"a"}
@@ -136,7 +139,7 @@ const DesktopNav = () => {
             }}
             whiteSpace={"nowrap"}
           >
-            {navItem.label}
+            <Link to={navItem.to}>{navItem.label}</Link>
           </Box>
         </Box>
       ))}
