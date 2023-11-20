@@ -1,38 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
 import { ChakraProvider } from "@chakra-ui/react";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/Home.jsx"
-import ErrorPage from "./pages/ErrorPage.jsx";
-import Login from "./pages/Login.jsx";
+import { BrowserRouter as Router } from "react-router-dom";
+import AppRoutes from "./routes/Routes.jsx";
 import { LanguageProvider } from "./components/LanguageContext.jsx";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
-      }, 
-    ]
-  }
-]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ChakraProvider>
       <LanguageProvider>
-      <RouterProvider router={router}/>
+        <Router>
+          <AppRoutes />
+        </Router>
       </LanguageProvider>
     </ChakraProvider>
-    
   </React.StrictMode>
 );
