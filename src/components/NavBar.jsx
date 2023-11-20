@@ -7,16 +7,17 @@ import {
   Stack,
   Collapse,
   Icon,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
 } from "@chakra-ui/react";
-import {
-  HamburgerIcon,
-  CloseIcon,
-  ChevronDownIcon,
-} from "@chakra-ui/icons";
+import { HamburgerIcon, CloseIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
+import { useLanguage } from "./LanguageContext";
 
 const navItems = [
   {
@@ -43,6 +44,11 @@ const navItems = [
 
 export default function NavBar() {
   const { isOpen, onToggle } = useDisclosure();
+  const { language, changeLanguage } = useLanguage();
+
+  const handleLanguageChange = (newLanguage) => {
+    changeLanguage(newLanguage);
+  };
 
   return (
     <Box w={"100%"} maxW={"1460px"} marginInline="auto">
@@ -69,9 +75,9 @@ export default function NavBar() {
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
           <Text textAlign={useBreakpointValue({ base: "center", md: "left" })}
-          fontWeight={700}
-          fontSize={"2rem"}
-          color={"#2D2D2D"}>
+            fontWeight={700}
+            fontSize={"2rem"}
+            color={"#2D2D2D"}>
             Idear
           </Text>
           <Flex
@@ -89,6 +95,22 @@ export default function NavBar() {
           direction={"row"}
           spacing={6}
         >
+          <Menu>
+            <MenuButton
+              as={Button}
+              fontSize={"sm"}
+              fontWeight={600}
+              variant={"link"}
+              color={"#16194F"}
+            >
+              {language === "pt-BR" ? "Idioma" : "Language"}
+              <ChevronDownIcon />
+            </MenuButton>
+            <MenuList>
+              <MenuItem onClick={() => handleLanguageChange("pt-BR")}>Português</MenuItem>
+              <MenuItem onClick={() => handleLanguageChange("en-US")}>English</MenuItem>
+            </MenuList>
+          </Menu>
           <Button
             as={"a"}
             fontSize={"sm"}
