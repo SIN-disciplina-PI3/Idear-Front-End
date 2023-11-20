@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home.jsx"
 import ErrorPage from "./pages/ErrorPage.jsx";
 import Login from "./pages/Login.jsx";
+import { LanguageProvider } from "./components/LanguageContext.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ChakraProvider>
+      <LanguageProvider>
       <RouterProvider router={router}/>
+      </LanguageProvider>
     </ChakraProvider>
     
   </React.StrictMode>

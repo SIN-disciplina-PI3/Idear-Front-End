@@ -3,8 +3,11 @@ import bg1 from "../assets/background.svg";
 import bg2 from "../assets/background1.svg";
 import foguete from "../assets/foguete.svg";
 import universo from "../assets/universo.svg";
+import { useLanguage } from "../components/LanguageContext";
 
 const Home = () => {
+  const { language } = useLanguage();
+
   const backgroundImage = `url(${bg1})`;
   const backgroundImage2 = `url(${bg2})`;
 
@@ -57,7 +60,7 @@ const Home = () => {
         >
           <Flex maxW={"600px"} height="100%" direction="column" gap="60px">
             <Heading as="h1" size="2xl" lineHeight={"60px"}>
-              A solução ideal para o seu problema
+             {language === "pt-BR" ? "A solução ideal para o seu problema" : "The ideal solution for your problem"}
             </Heading>
             <Heading
               as="h2"
@@ -69,12 +72,24 @@ const Home = () => {
               flexDirection="column"
               gap="30px"
             >
-              Descubra o poder da criatividade com o Idear. Uma ferramenta
-              inovadora para geração de ideias e soluções, ajudando a resolver
-              problemas de forma eficaz. Com uma interface intuitiva e
-              experiência do usuário excepcional, o Idear é a escolha perfeita
-              para impulsionar sua criatividade e alcançar resultados
-              surpreendentes. <span>Experimente agora mesmo!</span>
+              {language === 'pt-BR' ? (
+          <>
+            Descubra o poder da criatividade com o Idear. Uma ferramenta
+            inovadora para geração de ideias e soluções, ajudando a resolver
+            problemas de forma eficaz. Com uma interface intuitiva e
+            experiência do usuário excepcional, o Idear é a escolha perfeita
+            para impulsionar sua criatividade e alcançar resultados
+            surpreendentes. <span>Experimente agora mesmo!</span>
+          </>
+          ) : (
+          <>
+            Discover the power of creativity with Idear. An innovative tool for
+            generating ideas and solutions, helping to solve problems
+            effectively. With an intuitive interface and exceptional user
+            experience, Idear is the perfect choice to boost your creativity and
+            achieve amazing results. <span>Try it now!</span>
+          </>
+          )}
             </Heading>
 
             <Button
@@ -87,7 +102,8 @@ const Home = () => {
               fontSize="1.3rem"
               fontWeight="600"
             >
-              Iniciar
+              {language === "pt-BR" ? "Iniciar" : "Start"}
+              
             </Button>
           </Flex>
 
